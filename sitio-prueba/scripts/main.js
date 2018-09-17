@@ -10,3 +10,25 @@ Imagen.onclick = function (){
         Imagen.setAttribute('src' ,'images/firefox-icon.png');
     }
 }
+
+var Boton = document.querySelector('button');
+var titulo = document.querySelector('h1');
+
+function nuevousuario(){
+    var nombre = prompt('Ingrese nombre del usario');
+    localStorage.setItem('nombre',nombre);
+    titulo.textContent='hola usuario '+ nombre;
+}
+
+if (!localStorage.getItem('nombre')){
+    nuevousuario();
+}
+else{
+    var NombreAlmacenado = localStorage.getItem('nombre');
+    titulo.textContent = 'hola usuario '+NombreAlmacenado;
+
+}
+
+Boton.onclick = function(){
+    nuevousuario();
+}
